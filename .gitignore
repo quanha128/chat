@@ -18,7 +18,6 @@
 !*.php
 !*.js
 !*.css
-!*.html
 
 **/venv/
 **/mtk3_sim/
