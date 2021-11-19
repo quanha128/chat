@@ -14,6 +14,7 @@
 !*.java
 !*.cpp
 !*.go
+!*.md
 
 **/venv/
 **/mtk3_sim/
