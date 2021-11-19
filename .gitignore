@@ -11,6 +11,7 @@
 !*.mli
 !*.mly
 !*.edgelist
+!*.java
 
 **/venv/
 **/mtk3_sim/
