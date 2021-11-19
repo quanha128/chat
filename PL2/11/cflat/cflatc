@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+
+import os
+import sys
+import subprocess
+import tempfile
+
+if len(sys.argv) < 2:
+    print('Usage: cflatc foo.c bar.c ...')
+    sys.exit(1)
+
+asms = []
+objs = []
+out = 'b.out'
+keep = False
+
+try:
+    # Compile
+    for s in sys.argv[1:]:
+        fd, fname = tempfile.mkstemp(suffix='.s', prefix='cflatc.')
+        asms.append(fname)
+        print('Compiling: {0} -> {1}'.format(s, fname))
+        subprocess.run(['./cflatc1', s], stdout=open(fname, 'w'), check=True)
+
+    # Aseemble
+    for s in asms + ['stdlib.s']:
+        fd, fname = tempfile.mkstemp(suffix='.o', prefix='cflatc.')
+        objs.append(fname)
+        print('Assembling: {0} -> {1}'.format(s, fname))
+        subprocess.run(['as', '-o', fname, s], check=True)
+
+    # Link (FIXME: should use "ld"/"collect2" instead)
+    print('Linking: {0} -> {1}'.format(', '.join(objs), out))
+    subprocess.run(['gcc', '-static', '-o', out] + objs, check=True)
+    print('Finished')
+finally:
+    if not keep:
+        for s in asms + objs:
+            os.unlink(s)

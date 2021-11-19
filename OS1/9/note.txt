@@ -1,0 +1,78 @@
+CPU and I/O run simultaneously
+Process/thread execution made up of 2 components:
+    - CPU burst
+    - I/O burst
+While waiting for I/O burst, CPU has nothing to do
+Thus, running both program to utilize the resource (multi-programming)
+
+Scheduling and dispatch
+    - Scheduling: decide which task to execute next
+    - Dispatch: actually switch to the task to be executed next (often called context switch)
+        + made up of pausing and resuming program execution
+        + to resume program correctly, need to remember where it was and varible values (context)
+        + thread switches by switching stack pointer, and local vars are switched between threads
+        + for processs, registers + whole memory + kernel resource need to be remember
+In OS kernel, the context is saved in mem area called "control blocks"
+    PCB (process control blocks)
+    TCB (thread ...)
+contexts are managed in 2 functions:
+    void save_context(CB* cb);
+        save the current context to mem area *cb
+    void restore_context(CB* cb);
+        load context from *cb
+by using above 2 functions, CPU and I/O can run simultaneously
+
+When should we switch thread? (Scheduling)
+    - Non-preemptive multitasking: switch to another thread only if it has stopped running
+        + when a program never realease CPU by itself, the system cease to work
+        -> use preemptive
+    - Preemptive: switch regardless of the status of threads
+         _ criterea: + maximum CPU usage rate
+                     + maximum throughput
+                     + minimum turnaround time
+                     + minimum waiting time
+                     + minimum response time
+-> Choose a suitable algorithm for scheduling
+    - FCFS: non-preemptive, execute process one by one from the process that first ready
+        -> when CPU burst take long time, average wait time is high
+    - SJF: processes with shorter CPU burst will execute first (data structure called priority queue is needed)
+        + 2 variations: preemptive and non-preemptive
+            + non-preemptive: continue to runs the current shortest CPU burst until the end
+            + preemptive: switch to a shorter CPU burst if found (called "Shortest remaining time first" (SRTF))
+        -> suitable for minimizing wait time
+    - Priority scheduling: process with higher prio. is executed first
+        priority is based on what kind of definition:
+        + prio. in CPU burst -> SJF
+        + prio. in execution interval lenghth -> RMS
+        -> lower prio. proc. can never be executed unless all higher ones are executed
+        + problems: lower prio. pro. may never be executed at all (resource starvation)
+        -> solution: aging: increase the priority of processes that keep waiting for long
+    - RR: CPU time is divided into chunks, executing each proc by allocating them into one of these chunks
+        timer is required
+        meaning that, threads are switched at constant interval
+        - execution take long to complete, but rarely being froze
+        can be resolved by CFS
+    
+Real-time
+    If deadlines are kept, the system is called real-time
+    - Soft real-time: keep up with dealine most of the time
+        required in case the quality of service is reduced when deadline is violated
+    - Hard real-time: keep up 100% of deadline
+        required in case which fatal defects are caused if deadline is violated
+    Embedded systems are hard realtime
+
+    Realtime scheduling:
+    - EDFS: give higher prio. to earliest deadlines
+        prio is dynamic
+        calculation cost for scheduling is large
+        -> ANY deadlines can be kept
+    - RMS: define fixed prio according to execution interval
+        deadlines can be violated, although calculation for scheduling is lower
+
+    priority intervension can occured: lower prio keep resource from use by higher ones
+    -> fixed by temp. push the prio of lower one to be completed ASAP, then release the resource for actual higher ones
+    called prio inheritance
+
+RESOURCE STARVATION VS. DEADLOCK
+- Starvation: low priority process use high-priority process's resources, keep the high-priority process from accessing it
+- Deadlock: same resource is accessed by multiple process, causing them to wait each other to release the needed resources

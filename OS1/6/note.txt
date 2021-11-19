@@ -1,0 +1,32 @@
+Each processes are provided with distinct resources (memory, CPU, kernel source)
+Processes can have parent-child relationship
+Program composed of multiple processes
+
+#include <unistd.h>
+pid_t fork(void); : create a child process by cloning the process where this function is called
+* fork bomb: loop of fork, create unlimited child processes
+
+#include <sys/wait.h>
+pid_t wait(int* status);
+pid_t wait_pid(pid_t pid, int* status, int opt);
+wait for the child process to exterminate (opt == 0)
+
+#include <unistd.h>
+int execvp(const char* file, char* const argv[]);
+execute the program specified by file
+* does not generate new process, instead replace the current process to the program specified
+* need to put NULL to the end of argv[]
+
+child termination must be handled by the parent
+
+kernel provides simple, minimal functionalities, while complex ones are realized at server process
+
+#include <unistd.h>
+int pipe(int pipefd[2]);
+create a new pipe
+pipefd[0]: file descriptor for reading from pipe
+pipefd[1]: file descriptor for writing to pipe
+
+#include <unistd.h>
+int dup2(int oldfd, int newfd);
+copy file descriptor oldfd to be used by as a new file descriptor newfd

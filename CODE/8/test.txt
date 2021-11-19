@@ -1,0 +1,5 @@
+(11-16)**2+(22-16)**2+(19-16)**2+(24-16)**2+(18-16)**2+(9-16)**2+(11-16)**2+(14-16)**2
+
+(11-16)**2+(22-16)**2+(19-16)**2+(24-16)**2+(18-16)**2+(9-16)**2+(11-16)**2+(14-16)**2
+
+cannot\hspace{0.1cm}say\hspace{0.1cm}student\hspace{0.1cm}scores\hspace{0.1cm}are\hspace{0.1cm}different\hspace{0.1cm}from\hspace{0.1cm}average\hspace{0.1cm}value

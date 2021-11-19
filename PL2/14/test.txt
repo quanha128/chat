@@ -1,0 +1,56 @@
+abs:
+    mov $0, %ecx
+    cmp %edi, %ecx
+    jl  .else
+    mov %edi, %eax
+    jmp .cont
+.else:
+    mov $-1, %eax
+    imul %edi, %eax
+.cont:
+    ret
+
+
+// K-normalization
+int ihypot(int a, int b) {
+    int t1,t2,c;
+    t1 = a*a;
+    t2 = b*b;
+    c = t1 + t2;
+    c = sqrt(c);
+    return c;
+}
+
+// SSA
+int ihypot(int a, int b) {
+    int t1,t2,c0,c1;
+    t1 = a*a;
+    t2 = b*b;
+    c0 = t1 + t2;
+    c1 = sqrt(c0);
+    return c1;
+}
+
+// Register allocation
+int ihypot(int %edi, int %esi) {
+    %edi = %edi * %edi
+    %esi = %esi * %esi
+    %edi = %edi + %esi
+    %eax = sqrt(%edi)
+    return %eax
+}
+
+// Assembly
+ihypot:
+    imul %edi, %edi
+    imul %esi, %esi
+    add %esi, %edi
+    call sqrt
+    mov %edi, %eax
+    ret
+
+
+str 'Python'
+str 'is'
+
+str 'Wonderful'?

@@ -1,0 +1,16 @@
+I/O instruction set:
+    - Port mapped
+    - Memory mapped: use the same set of instruction as accessing memory
+        + registers for controlling the device is assigned to memory address
+            -> writing into memory == make keyboard, mouse,... to run
+        + set of instruction has specific address range
+
+By outputting H/L signals through CPU terminal, peripherals devices can be controlled
+Casting a pointer to the specific memory address gives you access to that that address
+    -> Peripherals can be programmed
+
+Put "volatile" to force programs to access variables in correct order and timing
+
+Clear bits: AND
+Set bits: OR
+

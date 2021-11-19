@@ -1,0 +1,46 @@
+distributed system: a system made up of multiple computers
+advantages:
+    - computational speed-up: combining multiple computers (called cluster), computational performance can be speed up
+    - reliability: one node fail, other nodes can continue to run
+    - distribution of function and resources
+
+distributed OS: multiple computers can be abstracted/virtualized into a single high-performance computer
+    - on distributed OS, remote resources can be access as if they are local
+
+inter process communications (IPC)
+resources can be accessed without thinking of existence of network is called network transparency
+
+distributed shared memory (DSM): mechanism to share the same memory on different machines
+
+deadlocks and race condition also occur in distributed system
+-> same idea as multiprocess or multithread scenario also applies
+    - distributed mutex: one process can ask for permission, and a permit can only be given at the same time
+    - howover, the coordinator becomes SPOF
+    -> can be solved with distributed algorithm
+    -> however, requires a lot of network traffic and not robust
+
+transaction: series of operation that realize a single logical operation as a whole
+- normally referred to as series of updates/searches in database
+- often required in distributed system
+properties: needs to guarantee 4 properties called ACID:
+    - Atomicity: operations never executed incompletely
+    - Consistency: rules are always kept within the system
+    - Isolation: a single transaction looks as if a single, sinseperable operation occured
+    - Durability: the change made by a transaction is persistent, never lost
+
+2PC: 2-Phase Commit protocol
+- a distributed algorithm which form an agreement to commit transaction or not in distributed system
+- can realize ACID when network troubles or node failure occurs
+- demerit: corruption of coordinator results in transaction lock-up
+    protocol can be realized in 2 phases:
+    - Phase 1: request for commit
+        + coordinator asks all nodes whether they can commit
+        + all nodes run all operations just before the execution of commit, and replies "agree" to coordinator
+        + upon receiving "agree" from all nodes, proceed phase 2
+    - Phase 2: execution of commit
+        + coordinator request all nodes to execute commit
+        + all nodes executes commit, and notifies coordinator if its completion
+        + transaction is complete when all nodes have finished commits
+- Notes: Byzantine General's problem
+    - when a node is malicious or corrupted, how to realize that the system reach to the correct concensus?
+

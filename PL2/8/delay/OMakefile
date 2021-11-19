@@ -1,0 +1,11 @@
+BYTE_ENABLED = true
+NATIVE_ENABLED = true
+
+PROGRAM = fact
+FILES[] = delayed main
+
+.DEFAULT: $(OCamlProgram $(PROGRAM), $(FILES))
+.PHONY: clean dist
+
+clean:
+	rm -f $(filter-proper-targets $(glob $(addsuffix .*, $(FILES)))) $(glob *.omc) .omakedb .omakedb.lock $(PROGRAM) $(PROGRAM).opt $(PROGRAM).run

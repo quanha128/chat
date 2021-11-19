@@ -1,0 +1,13 @@
+protection: mechanism that allow process to operate on targeted resource, only within the privilege given.
+divided into domain: what permission for which resource
+ring protection: process level can only access ring of lower privilege
+
+shell command for file permission:
+chmod <permission> <filename>: change permission
+chown <user> <filename>: change owner
+chgrp <user> <filename>: change group
+
+access control matrix: memory consuming (2D array)
+access control list: each file holds list of permission for each domain (1D array)
+capability list: each domain holds list of permission for each file (1D array)
+role-based access control: gives user roles, and assign permission to each role

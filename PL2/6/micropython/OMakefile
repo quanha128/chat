@@ -1,0 +1,28 @@
+USE_OCAMLFIND = false
+OCAMLFINDFLAGS =
+OCAMLPACKS = 
+BYTE_ENABLED = true
+NATIVE_ENABLED = true
+MENHIR_ENABLED = true
+
+OCAMLCFLAGS = 
+OCAMLOPTFLAGS = 
+OCAMLFLAGS = 
+MENHIR_FLAGS = --explain
+
+OCAML_LIBS = 
+OCAML_OTHER_LIBS = str
+OCAML_CLIBS = 
+OCAML_LIB_FLAGS =
+
+FILES[] = load syntax lexer parser valueEnv eval main
+PROGRAM = micropython
+
+.DEFAULT: $(OCamlProgram $(PROGRAM), $(FILES))
+.PHONY: clean dist
+
+clean:
+	rm -f $(filter-proper-targets $(glob $(addsuffix .*, $(FILES)))) $(glob *.omc) .omakedb .omakedb.lock parser.conflicts $(PROGRAM) $(PROGRAM).opt $(PROGRAM).run
+
+dist: clean
+	cd ..; tar cvzf micropython.tar.gz --exclude=.omakedb --exclude=.omakedb.lock micropython/

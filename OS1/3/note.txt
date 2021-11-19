@@ -1,0 +1,69 @@
+software workflow:
+- load CPU intruction determined by PC from memory to IR
+- CPU control unit decode and execute the intruction
+- PC value is updated
+
+Assembly code consists of "instruction" and "label" (stand for command (like ADD) and mem. addr)
+
+High level programming language translates into machine language by compiler and assembler
+- compiler: source code -> assembly
+- assembler: assembly -> machine code
+* objdump -dr: check compilation result
+* -On (n: 1->3) option specify optimization level
+
+Intel64 architecture consists of 16 registers
+- r0-15
+- rip: PC, containing addr of next instr to be exec
+- rflags: register that keep current status of program (e.g, containing comparison result of cmp instr)
+
+x64 instructions:
+(to determine bit size for operations, add 'q'(64b) or 'l'(32b) as suffix (e.g, movq, movl, addq, addl))
+- mov src, dst: move src to dst (dst = src)
+- add src, dst: add src to dst (dst += src)
+- sub src, dst: subtract src from dst (dst -= src)
+- jmp addr: jump to addr (equi. to %rip = addr, or goto addr in C)
+- cmp val2, val1: compare val1 and val2 (result store in %rflags)
+- jg addr: jump to addr only if %rflags is (val1>val2), equi. to (if (val1>val2) goto addr)
+- call addr: record the next instruction address (= the next %rip value) and then jump to addr (equi. jump addr after remembering the next %rip)
+- ret: jump to the addr remembered by call (equi. jump %rip)
+- push reg: add register reg on top of stack
+- pop reg: remove a value from stack
+- leave: remove top frame from stack
+- syscall: interrupt other operation, cause CPU to jump to system call interrupt and give the task more privilge
+
+x64 operands:
+- %reg: value in register reg
+- $num: the number 'num' itself (called immediate value)
+- (%reg): value at memory adrress %reg
+- num1(%reg1): value at mem addr %reg1 + num1
+- num1(%reg1, %reg2, num2): value at mem addr %reg1 + %reg2 * num2 + num1
+
+Function call: in order for C to realize function call, set of rules called  calling convention is required:
++ Passing pointer/integer:
+- %rdi: first argument
+- %rsi: second argument
+- %rdx: third argument
+- %rcx: fourth argument
+- %r8: fifth argument
+- %r9: sixth argument
+- others are passed on stack
++ Returning pointer/integer:
+- %rax
++ caller-save registers: allow modification
++ callee-save registers: NOT allow modification
+
++ To diffrietiate caller and calle variables, change %rbp each time func is called
+- Stack frame: data stored here each function called
+- Data on top of the stack is used first
+- After returning, data on top is removed
+
++ Stack frame boundaries are kept in %rsp (stack pointer) and %rbp (base pointer)
+
+Use ssize_t write() function to use syscall
+
+API vs. ABI:
++ API: interaface used when programming
++ ABI: interface used by programs to access kernel
+
++ API compa.: can run by rebuilding the source code
++ ABI compa.: can run binary codes as they are

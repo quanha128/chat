@@ -1,0 +1,9 @@
+void flow_entry (packet, &pkt_num, &bytes) {
+    while (T_out <= 60) {
+        if (IP_dst == 192.168.x.x/24) && (IP_proto == TCP) {
+            pkt_num++;
+            bytes += sizeof(packet);
+        }
+    }
+    free(entry);
+    return;

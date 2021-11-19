@@ -1,0 +1,44 @@
+memory is a valuable resource in embedded system
+2 types of memory: RAM(r/w) and ROM(read-only)
+-> vars in RAM, const and prog. codes in ROM
+compiler places vars in different sections:
+    .text section: ROM (const, codes)
+    .bss section: RAM (global vars)
+    .data section: vars on RAM, initial value on ROM (on start up, data is copied to RAM)
+efficiently use RAM, as more RAMs means more money is cost
+- change vars from .bss section to .text section by adding "const"
+- aware of memory consumption on heap and stack spaces
+
+arduino programs are made of setup() and loop()
+setup(): function execute only once on start up
+loop(): function execute repeatedly while the system is running
+
+realtime OS
+- task creation:
+    ID tskid = tk_cre_tsk(T_CTSK *ctsk);
+    create a new task inside a program
+    task ID is dynamically assigned by the OS, and returned from tk_cre_tsk
+    the newly created task becomes DORMANT state
+    stack size needs to be specified as no virtual mem is used
+
+T_CTSK ctsk = {
+    ctsk.exinf = NULL;                  //extra info
+    ctsk.tskatr = TA_HLNG | TA_RNG0;    //task attribute
+    ctsk.task = task;                   //task function
+    ctsk.itskpri = 10;                  //initial priority
+    ctsk.stksz = 4096;                  //stack size
+}
+
+- task function:
+    void task(int stacd, void *exinf) {
+        (task procressing);
+
+        tk_ext_tsk();
+    }
+
+- starting a task:
+    ER ercd = tk_sta_tsk(ID tskid, int stacd);
+    make DORMANT state becomes READY
+        if not in DORMANT state, error is returned
+    the task priority becomes initial priority as specified in task creation
+    stacd is passed as the first argument of the function

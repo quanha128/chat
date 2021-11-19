@@ -1,0 +1,31 @@
+USE_OCAMLFIND = false
+OCAMLFINDFLAGS =
+OCAMLPACKS = 
+BYTE_ENABLED = true
+NATIVE_ENABLED = true
+MENHIR_ENABLED = true
+
+OCAMLCFLAGS = 
+OCAMLOPTFLAGS = 
+OCAMLFLAGS = 
+MENHIR_FLAGS = --explain
+
+OCAML_LIBS = 
+OCAML_OTHER_LIBS = str
+OCAML_CLIBS = 
+OCAML_LIB_FLAGS =
+
+FILES[] = id syntax parser lexer typing knormal ssa machine regalloc asm main
+PROGRAM = cflatc1
+
+.DEFAULT: $(OCamlProgram $(PROGRAM), $(FILES))
+.PHONY: clean dist test
+
+clean:
+	rm -f $(filter-proper-targets $(glob $(addsuffix .*, $(FILES)))) $(glob *.omc) .omakedb .omakedb.lock parser.conflicts a.out b.out $(PROGRAM) $(PROGRAM).opt $(PROGRAM).run
+
+dist: clean
+	cd ..; tar cvzf cflat.tar.gz --exclude=.omakedb --exclude=.omakedb.lock --exclude=.git cflat/
+
+test: $(PROGRAM)
+	./cflatc sample.c; ./b.out

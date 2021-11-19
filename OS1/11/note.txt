@@ -1,0 +1,79 @@
+memory management problems:
+    - illegal access
+    - memory overuse
+-> solve using virtualization
+
+how virtual memory implemented?
+    - when memory is accessed, cause an interruption
+    - during this interruption, access to memory (hardware)
+
+paging
+    - memory is divided into small chunks called pages
+    - address conversion: converts virtual memory address into physical memory address
+    - virtue:
+        + allows discontinued memory pages to be used as continuous memory spaces
+        -> avoid fragmentation
+
+address conversion:
+    - page number is converted to page frame
+    - page off-set is kept
+
+use page table to manage the conversions
+    - contains attributes:
+        + valid flag: does page exist in physical memory
+        + permission flag: what permission (r/w/e/...)
+        + dirty flag: modified or not
+-> problem: SLOW
+-> use MMU
+TLB works as a cache, memorizing page conversions, so that interruptions are reduced
+
+demand paging
+-> a technique to procastinate prepareation of physical memory until its content is actually used
+
+when memory in physical memory is not enough to allocate new application, save the current one to disk (swap out)
+and later restore it from disk to memory (swap in)
+called swapping
+
+swap out procedure:
+    - save from physical memory to swap region on disk
+    - set valid flag to 0, hence making the logical page free
+
+swap in procedure:
+    - look for a free physical frame
+    - write page frame number to PTE, set vflag to 1
+    - restore from swap region to physical memory
+
+page swapping algorithm
+- temporal locality: address tends to be accessed in near future
+- spatial locality: adress that when accessed, nearby adresses tends to be accessed as well
+
+Belady's Anomaly in FIFO algo:
+    - as more physical memory is added to computer, number of page faults should decrease
+    - but not the case with FIFO
+    - why: 
+        + swap-in order is determined by swap-out order
+        + thus, changing the number of page frames will change the access pattern
+
+LRU algorithm:
+    - (least recently used) process is swapped out
+    - access pattern is unchanging
+    - no Belady's Anomaly, but heavy calculation is needed
+    - use LRU approximaion instead
+LRU approximation algorithm:
+    - implement second chance algorithm:
+        + prepare R (reference) flag in PTE, init to 0
+        + when page is accessed, change R to 1
+        + when apge fault occurs, move the R=1 pages to the end of the queue and change their R to 0
+
+thrashing:
+    - I/O burst: intervals when no CPU usage, wait for I/O
+    - if CPU burst can be utilized by filling I/O burst, more jobs run at the same time
+    - However, computer behaves differently: when number of process exceeds some limit, CPU utilization
+        is deteriorated sharply
+        -> called thrashing
+    - WHY?:
+        + is caused by memory swapping frequently
+        -> performance is degraded, making access speed slowed down to disk access speed
+    - condition:
+        + for thrashing to occur: sum of working set > physical memory amount
+            (working set: memory accessed at certain time interval )

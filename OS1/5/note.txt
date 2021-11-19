@@ -1,0 +1,21 @@
+strace keep track of system calls used when executing programs
+
+#include <fcntl.h>
+open(): open the file with specified path
+        return a file descriptor ( >=0 for success). Later operations on this opened file is done by specifying this file descriptor
+#include <unistd.h>
+read(): read file from file descriptor
+        read n bytes and store to buf (although n bytes may not always be read), return bytes read
+        return 0 on eof
+write(): write to file dpecified by file descriptor
+        write data stored in buf at most n bytes, return bytes written
+        all n bytes may not always be write
+close(): close a file descriptor
+
+#define STDIN_FILENO 0
+#define STDOUT_FILENO 1
+#define STDERR_FILENO 2
+These file descriptor can be used without open()
+
+For most POSIX API, returns -1 on error
+strerror_r() turns errno to error message

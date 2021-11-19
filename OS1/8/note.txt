@@ -1,0 +1,11 @@
+To efficiently use mutex, multiple mutex should be used
+Giant lock: 1 mutex, inefficient
+Fine-grained lock: multiple mutex, easy to get bugs
+
+Deadlock: situation where threads wait for others to release resource, thus no advancement can be made
+4 conditions:
+    - Mutual exclusion (sol. make resources independent)
+    - Hold and wait (trylock)
+    - No preemption (trylock)
+    - Circular wait (algorithm)
+Break one of these conditions will guarantee deadlock from occuring

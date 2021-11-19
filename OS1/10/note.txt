@@ -1,0 +1,84 @@
+socket interface
+- a standard API for network communication
+- each socket provides an abstract interface for receiving/sending data
+- can be used with file API
+
+socket(): create a new socket
+bind(): bind my IP/port to socket
+listen(): prepare a queue for accepting incoming connection request
+accept(): wait for connection request
+connect(): connect to a server
+getaddrinfo(): convert host name to IP address
+
+socket API accept value of type (struct sockaddr*) as arguments, therefore need to typecast
+
+program flow (TCP):
+- convert host name to IP address (getaddrinfo)
+- create socket (socket)
+- connect to a server (connect)
+- communicate with server (read/write)
+- close communication (close)
+
+#include <netdb.h>
+int getaddrinfo(const char* host, 
+                const char* port,
+                const struct addrinfo* hints,
+                const struct addrinfo** res);
+- get addr information (of struct sockaddr*) that correspond to hostname host and portname port
+- resulting address info is stored in res (a linked list of multiple addresses, therefore release with freeaddrinfo(res) after use)
+- specify condition for query with hints (similar to a filter: IPv4 only, NULL for no conditions,...)
+- return 0 on success, non-zero for others
+* avoid using gethostbyname():
+- not thread safe
+- does not return struct sockaddr* directly, protocol-specific operations are needed before connect()
+- condition like hints cannot be used
+
+#include <sys/socket.h>
+int socket(int domain, int type, int protocol);
+- create a new socket, and return file descriptor
+    + domain: protocol family such as IPv4, IPv6
+    + type: communication type such as TCP/IP, UDP/IP
+    + protocol: protocol such as TCP, UDP
+
+connect(int sockfd, const struct sockaddr* addr, int addrlen);
+- connect to a server with specified addr
+
+
+server flow (TCP):
+- create socket (socket)
+- bind server addr to socket (bind)
+- prepare a buffer for incoming connection request (listen)
+- accept connection request (accept)
+- process requests (read/write)
+- go back to (accept) to accept further requests
+* (read/write) is often processed in other thread, so that the server can receive multiple incoming requests
+
+#include <sys/socket.h>
+int bind(int sockfd, struct sockaddr* addr, socketlen_t addrlen);
+- bind socket to the server specified by addr
+
+int listen(int sockfd, int backlog);
+- configure length of the buffer (backlog) to keep incoming connection requests not being processed yet
+- in other words, specify how many concurrent requests the server can handle
+
+int accept(int sockfd, struct sockaddr* addr, socketlen_t addrlen);
+- wait for connection request to arrive to socket
+- when a connection is accepted, new socket for that communication with client is created, and its filedp is returned
+- client info is returned in *addr
+- take request from (backlog), one by one
+
+threaded-server problems: context switching is heavy when around 10000 clients needed to be processed
+-> I/O multiplexing
+- functionalities allow handling multiple filedp at the same time with a single thread
+POSIX: select(), poll()
+Linux: epoll()
+
+#include <sys/select.h>
+int select(int nfds, fd_set* rfds, fd_set* wfds, fdset* efds, struct timeval* timeout);
+- wait until the filedp in sets rfds, wfds, efds become available
+    + rfds: set of filedp waiting to be able to read
+    + wfds: set of filedp waiting to be able to write
+    + efds: set of filedp waiting for exceptions
+- for nfds, maximum filedp number + 1 needs to be specified
+- return 0 on success, and filedp that become ready is returned to each sets specified
+- maximum timeout can be set with *timeout 

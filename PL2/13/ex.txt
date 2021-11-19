@@ -1,0 +1,9 @@
+%r0 = a             (%r0:a)          //a
+%r1 = b             (%r0:a, %r1:b)   //b
+%r0 = %r0 * %r0     (%r0:a2, %r1:b)  //a2
+%r1 = %r1 * %r1     (%r0:a2, %r1:b2) //b2
+%r0 = %r0 + %r1     (%r0:c2, %r1:b2) //c2
+Save(c2, %r0)
+%r1 = sqrt(%r0)     (%r0:c2, %r1:c)  //c
+Restore(c2, %r0)
+return %r1
