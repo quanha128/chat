@@ -13,6 +13,7 @@
 !*.edgelist
 !*.java
 !*.cpp
+!*.go
 
 **/venv/
 **/mtk3_sim/
