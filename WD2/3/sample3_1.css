@@ -1,0 +1,24 @@
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    padding-left: 5px;
+    padding-right: 5px;
+    width:150px;
+    height:40px;
+    float: left;
+    background-color: #eeeeee;
+}
+
+nav a {
+    background-color: #00ffff;
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #fad55d;
+}

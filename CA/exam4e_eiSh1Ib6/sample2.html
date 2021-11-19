@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample 2</title>
+    <script src="js/sample2.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sample2.css">
+  </head>
+
+  <body>
+    <h1>Fan</h1>
+
+    <p>Calculate the area of the sector and the length of its arc.</p>
+    <div class="problem">
+      <p>
+        <label for="input-radius">Radius</label>
+        <input id="input-radius" type="text">
+      </p>
+      <p>
+        <label for="input-degree">Center angle (degree)</label>
+        <input id="input-degree" type="text">
+      </p>
+      <button onclick="compute()">Calculate</button>
+    </div>
+
+    <div class="result">
+      <p>Area: <span id ="area"> </span></p>
+      <p>Arc length: <span id ="arc"> </span></p>
+    </div>
+  </body>
+
+</html>
