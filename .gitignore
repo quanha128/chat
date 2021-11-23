@@ -22,6 +22,11 @@
 **/venv/
 **/mtk3_sim/
 **/go/
+**/PROJ
+**/go
+**/node_modules
+**/GO
+**/ds2021
 
 # **/.vscode
 # **/venv
