@@ -1,0 +1,27 @@
+db.course.aggregate([
+  {$lookup: {from: "grade", localField: "course_id", foreignField: "course_id", as: "course_grades"}},
+  {$match: {course_name:"AI"}},
+  {$project: {_id:0, "course_grades.student_id":1, "course_grades.score":1}}
+])
+
+db.student.aggregate([
+  {$lookup: {from: "grade", localField: "student_id", foreignField: "student_id", as: "grades"}},
+  {$unwind: "$grades"},
+  {$lookup: {from: "course", localField: "course_id", foreignField: "course_id", as: "all_join"}},
+  {$match: {age:{$gte: 20}}},
+  {$project: {_id:0, "grades.course_id":1}}
+])
+
+db.course.aggregate([
+  {$lookup: {from: "grade", localField: "course_id", foreignField: "course_id", as: "grades"}},
+  {$unwind: "$grades"},
+  {$lookup: {from: "student", localField: "grades.student_id", foreignField: "student_id", as: "all_join"}},
+  {$match: {"all_join.age":{$gte: 20}}},
+  {$project: {_id:0, course_id:1}}
+])
+
+db.grade.aggregate([
+  {$lookup: {from: "student", localField: "student_id", foreignField: "student_id", as: "grades"}},
+  {$match: {"grades.age":{$gte: 20}}},
+  {$project: {_id:0, course_id:1}}
+])
