@@ -27,6 +27,7 @@
 **/node_modules
 **/GO
 **/ds2021
+**/raytracing
 
 # **/.vscode
 # **/venv

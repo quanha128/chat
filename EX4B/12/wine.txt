@@ -1,0 +1,38 @@
+db.review.aggregate([
+  {$match : {variety:"Pinot Noir"}},
+  {$group : {_id: "$country", avg_point:{$avg:"$points"}}}
+])
+
+db.review.aggregate([
+  {$match : {points:{$gte: 95}}},
+  {$group : {_id: "$country", review_count:{$sum:1}}},
+  {$match : {review_count: {$gte: 600}}},
+  {$sort:{review_count:-1}},
+])
+
+db.review.aggregate([
+  {$match : {$and: [{price:{$lte: 50}},{$or: [{variety:"Cabernet Sauvignon"},{variety:"Grenachen"}]}]}},
+  {$sort:{points:-1}},
+  {$project: {_id:0, title:1}}
+])
+
+db.review.aggregate([
+  {$match : {price:{$gte: 1000}}},
+  {$group : {_id: {"name:"$country", variety:"$variety"},
+            avg_point:{$avg:"$points"}}},
+  {$match : {avg_point: {$gte: 95}}},
+])
+
+db.review.aggregate([
+  {$match : {price:{$gte: 1000}}},
+  {$group : {_id: {name:"$country", variety:"$variety"},
+            avg_point:{$avg:"$points"}}},
+  {$match : {avg_point: {$gte: 95}}},
+])
+
+db.review.aggregate([
+  {$match : {price:{$gte: 1000}}},
+  {$group : {_id: "$country",
+            avg_point:{$avg:"$points"}}},
+  {$match : {avg_point: {$gte: 95}}},
+])

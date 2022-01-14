@@ -1,0 +1,78 @@
+<div class="card_with_caption hidden">
+ <div class="card_container card_1 hidden">
+  <a href="/wiki/Aralia_Wood" title="Aralia Wood">
+   <img alt="Rarity 1 background.png" class="lazyload" data-image-key="Rarity_1_background.png" data-image-name="Rarity 1 background.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/6/69/Rarity_1_background.png/revision/latest/scale-to-width-down/74?cb=20210209215734" decoding="async" height="90" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="74"/>
+  </a>
+  <div class="card_image">
+   <a href="/wiki/Aralia_Wood" title="Aralia Wood">
+    <img alt="Item Aralia Wood.png" class="lazyload" data-image-key="Item_Aralia_Wood.png" data-image-name="Item Aralia Wood.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/d/db/Item_Aralia_Wood.png/revision/latest/scale-to-width-down/74?cb=20210721030253" decoding="async" height="74" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="74"/>
+   </a>
+   <div class="card_corner">
+    <img alt="Card Corner.png" class="lazyload" data-image-key="Card_Corner.png" data-image-name="Card Corner.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/7/79/Card_Corner.png/revision/latest/scale-to-width-down/14?cb=20210112001938" decoding="async" height="14" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="14"/>
+   </div>
+  </div>
+  <div class="card_text">
+   <span class="card_font">
+    8
+   </span>
+  </div>
+ </div>
+ <div class="card_caption">
+  <a href="/wiki/Aralia_Wood" title="Aralia Wood">
+   Aralia Wood
+  </a>
+ </div>
+</div>
+
+<div class="card_with_caption hidden">
+ <div class="card_container card_0 hidden">
+  <a href="/wiki/Blue_Dye" title="Blue Dye">
+   <img alt="Rarity 1 background.png" class="lazyload" data-image-key="Rarity_1_background.png" data-image-name="Rarity 1 background.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/6/69/Rarity_1_background.png/revision/latest/scale-to-width-down/74?cb=20210209215734" decoding="async" height="90" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="74"/>
+  </a>
+  <div class="card_image">
+   <a href="/wiki/Blue_Dye" title="Blue Dye">
+    <img alt="Item Blue Dye.png" class="lazyload" data-image-key="Item_Blue_Dye.png" data-image-name="Item Blue Dye.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/6/62/Item_Blue_Dye.png/revision/latest/scale-to-width-down/74?cb=20210428025401" decoding="async" height="74" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="74"/>
+   </a>
+   <div class="card_corner">
+    <img alt="Card Corner.png" class="lazyload" data-image-key="Card_Corner.png" data-image-name="Card Corner.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/7/79/Card_Corner.png/revision/latest/scale-to-width-down/14?cb=20210112001938" decoding="async" height="14" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="14"/>
+   </div>
+  </div>
+  <div class="card_text">
+   <span class="card_font">
+    4
+   </span>
+  </div>
+ </div>
+ <div class="card_caption">
+  <a href="/wiki/Blue_Dye" title="Blue Dye">
+   Blue Dye
+  </a>
+ </div>
+</div>
+
+<div class="card_with_caption hidden">
+ <div class="card_container card_3 hidden">
+  <a href="/wiki/Key_Fence:_Self-Restraint" title="Key Fence: Self-Restraint">
+   <img alt="Rarity 3 background.png" class="lazyload" data-image-key="Rarity_3_background.png" data-image-name="Rarity 3 background.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/5/57/Rarity_3_background.png/revision/latest/scale-to-width-down/74?cb=20210209215735" decoding="async" height="90" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="74"/>
+  </a>
+  <div class="card_image">
+   <a href="/wiki/Key_Fence:_Self-Restraint" title="Key Fence: Self-Restraint">
+    <img alt="Item Key Fence Self-Restraint.png" class="lazyload" data-image-key="Item_Key_Fence_Self-Restraint.png" data-image-name="Item Key Fence Self-Restraint.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/c/cc/Item_Key_Fence_Self-Restraint.png/revision/latest/scale-to-width-down/74?cb=20211014232946" decoding="async" height="74" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="74"/>
+   </a>
+   <div class="card_corner">
+    <img alt="Card Corner.png" class="lazyload" data-image-key="Card_Corner.png" data-image-name="Card Corner.png" data-src="https://static.wikia.nocookie.net/gensin-impact/images/7/79/Card_Corner.png/revision/latest/scale-to-width-down/14?cb=20210112001938" decoding="async" height="14" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="14"/>
+   </div>
+  </div>
+  <div class="card_text">
+   <span class="card_font">
+    1
+   </span>
+  </div>
+ </div>
+ <div class="card_caption">
+  <strong class="mw-selflink selflink">
+   Key Fence: Self-Restraint
+  </strong>
+ </div>
+</div>
+

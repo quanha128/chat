@@ -1,0 +1,79 @@
+Key_Fence:_Self-Restraint
+Sappan_and_Vermilion_Enjoined
+Not a craftable item
+Official_Residence_Corridor:_Power's_Reach
+Inazuman_Official_Residence:_Strict_Adherence
+Fence_Corner:_Long_Watch_
+Key_Gateway:_Beneath_the_Clouds
+Headquarters_Alarm:_Sound_of_Thunder
+The_Red_Kite's_Waking_and_Sleeping
+Not a craftable item
+War_Drum:_Line-Breaking_Reverb
+Hot_Spring_Whitestone:_Secret_Fire
+Not a craftable item
+Hot_Spring_Folding_Screen:_Moderation
+Hot_Spring_Wall:_Well-Grounded
+Wading_Stones
+Not a craftable item
+The_Precious_Pink_of_Spring
+Not a craftable item
+Hot_Spring_Outer_Wall:_No_Vaulting
+Flower's_First_Blushing_Bloom
+Not a craftable item
+A_Thousand_Petals_of_Red_Glaze
+Not a craftable item
+Meditation_Stone
+Not a craftable item
+Whitestone_Hot_Spring:_Diffusing_Warmth
+Hot_Spring_Foyer:_Shelter_from_the_Cold
+The_Wandering_Bird_Within
+Not a craftable item
+Otogi_"Tanin"_Wood_Barrel
+"Kokutan"_Thick-Walled_Clay_Water_Tank_
+Otogi_"Kintake"_Fence_
+High-Flying_Fish_Flag_
+Otogi_"Kintake"_Courtyard_Gate
+Inazuman_Bamboo-Roofed_Home:_Wild_Heart
+Inazuman_Bamboo-Roofed_Home:_The_Long_Peace
+The_Fruit_Farmer's_Thrift
+Cleansing_Shrine
+The_Aster's_Sigh
+Not a craftable item
+Yumemiru_"Seiken"_Offering_Box
+White_Fish_Tallow_Candle:_Evenlight_
+Foundations_of_Stone:_Double-Time
+Foundations_of_Stone:_Timely_Arrival
+Foundations_of_Stone:_Path_of_Cultivation_
+Fortune_Slip_Stand:_Omen-Reader
+"Seal_of_the_Provisional_Head_Priestess"
+Not a craftable item
+Yumemiru_"Saikyo"_Fortune_Slip_Hanger
+Sky_Kitsune_Statue:_Hakushin's_Legacy
+Yumemiru_"Kuukai"_Street_Lamp
+Replica_Ancient_Otogi_Keg
+Village_Well:_Subterranean_Secrets
+Narukami's_Banner
+Encampment_Fence:_Decisive_Judgment_
+Camp_Gate:_Fealty
+Camp_Spear-Rack:_Point_Break_
+Camp_Dwelling:_Shoring_Up
+Camp_Tent:_Timely_Tactics
+Camp_Watchtower:_Viewport
+Encampment_Fence:_Jagged_Teeth
+Encampment_Fence:_Honing_Goad
+Of_Promises_Unkept_the_Night_Flowers_Speak
+Not a craftable item
+Ritual_Shrine
+Otogi_Countryside_Street_Lamp
+Melancholy,_the_Dewgrass_Shadowing
+Not a craftable item
+Festival_"Kiban"_Store
+Festival_"Teiban"_Store
+Otogi_Wood_Rice_Cake_Soup_Stand
+Replica_Ancient_Otogi_Crate
+Otogi_"Rakushi"_Square_Stool_
+Otogi_"Rakushi"_Square_Table_
+Inazuman_Home:_Easy_Adaptation
+Five-Lantern_Festival_Gate
+['Aralia Wood', 'Blue Dye', 'Yellow Dye', 'Blue Dye', 'Maple Wood', 'Maple Wood', 'Blue Dye', 'Yellow Dye', 'Aralia Wood', 'Blue Dye', 'Aralia Wood', 'Otogi Wood', 'White Iron Chunk', 'Maple Wood', 'Fabric', 'Blue Dye', 'Aralia Wood', 'Aralia Wood', 'Aralia Wood', 'White Iron Chunk', 'Aralia Wood', 'Otogi Wood', 'Fabric', 'Otogi Wood', 'Iron Chunk', 'Otogi Wood', 'Otogi Wood', 'Yellow Dye', 'Blue Dye', 'Otogi Wood', 'Otogi Wood', 'Yellow Dye', 'Otogi Wood', 'Yellow Dye', 'Otogi Wood', 'Yumemiru Wood', 'Red Dye', 'Yumemiru Wood', 'White Iron Chunk', 'White Iron Chunk', 'White Iron Chunk', 'White Iron Chunk', 'Yumemiru Wood', 'Red Dye', 'Yumemiru Wood', 'Red Dye', 'White Iron Chunk', 'Yumemiru Wood', 'Red Dye', 'Otogi Wood', 'Otogi Wood', 'Iron Chunk', 'Fabric', 'Red Dye', 'Blue Dye', 'Otogi Wood', 'Otogi Wood', 'White Iron Chunk', 'Blue Dye', 'Aralia Wood', 'White Iron Chunk', 'Otogi Wood', 'Iron Chunk', 'Otogi Wood', 'Iron Chunk', 'Otogi Wood', 'Otogi Wood', 'Otogi Wood', 'Otogi Wood', 'Otogi Wood', 'Fabric', 'Otogi Wood', 'Fabric', 'Blue Dye', 'Otogi Wood', 'Fabric', 'Blue Dye', 'Otogi Wood', 'Blue Dye', 'Otogi Wood', 'Otogi Wood', 'Otogi Wood', 'Otogi Wood', 'Blue Dye', 'Yellow Dye', 'Otogi Wood', 'Fabric']
+['8', '4', '6', '6', '12', '12', '6', '6', '8', '4', '12', '8', '4', '8', '4', '4', '12', '8', '8', '12', '12', '4', '2', '4', '2', '4', '6', '4', '4', '8', '12', '6', '12', '6', '8', '16', '6', '8', '4', '4', '4', '8', '12', '6', '12', '6', '8', '8', '4', '4', '8', '4', '8', '4', '4', '8', '6', '6', '6', '8', '4', '12', '6', '24', '6', '12', '8', '8', '8', '4', '2', '6', '6', '6', '6', '6', '6', '12', '6', '4', '4', '4', '12', '3', '3', '4', '2']
